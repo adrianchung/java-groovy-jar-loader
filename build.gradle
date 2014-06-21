@@ -1,0 +1,25 @@
+apply plugin: 'groovy'
+apply plugin: 'java'
+apply plugin: 'application'
+
+repositories {
+    jcenter()
+        mavenCentral()
+}
+
+mainClassName = 'ca.adrianchung.Runner'
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/java'
+        }
+        resources {
+            srcDir 'src/resources'
+        }
+    }
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.3.3'
+}
