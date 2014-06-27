@@ -1,11 +1,10 @@
 package ca.adrianchung;
 
+import java.io.File;
+import java.io.IOException;
 import groovy.lang.Binding;
 import groovy.lang.GroovyClassLoader;
 import groovy.lang.GroovyShell;
-
-import java.io.File;
-import java.io.IOException;
 
 public class Runner {
     public void run() throws IOException {
@@ -16,7 +15,7 @@ public class Runner {
         Binding binding = new Binding();
 
         GroovyShell groovyShell = new GroovyShell(loader, binding);
-        groovyShell.run(scriptFile, new String[] {});
+        groovyShell.evaluate(scriptFile);
     }
 
     public static void main(String[] args) throws IOException {
