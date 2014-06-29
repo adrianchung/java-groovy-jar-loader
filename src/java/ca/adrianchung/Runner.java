@@ -12,6 +12,14 @@ public class Runner {
 
         ClassLoader parent = getClass().getClassLoader();
         GroovyClassLoader loader = new GroovyClassLoader(parent);
+
+        File jars = new File("src/lib");
+        for (File jar : jars.listFiles()) {
+            if (jar.getName().endsWith(".jar")) {
+                loader.addURL(jar.toURI().toURL());
+            }
+        }
+
         Binding binding = new Binding();
 
         GroovyShell groovyShell = new GroovyShell(loader, binding);
